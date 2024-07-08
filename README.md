@@ -1,7 +1,6 @@
 # Random Search
 A simple [C++](https://en.wikipedia.org/wiki/C%2B%2B) implementation of [random search](https://arxiv.org/abs/1803.07055) for [locomotion tasks](https://github.com/openai/gym/tree/master/gym/envs/mujoco) using [MuJoCo](https://mujoco.org/).
 
-
 ## Installation
 `rs.cpp` should work with Ubuntu and macOS.
 
@@ -68,7 +67,7 @@ can simplify the build process.
    "debug").
 
 ## Train cheetah
-Train cheetah in ~10 seconds using 20 threads with [Intel Core i9-14900K](https://www.intel.com/content/www/us/en/products/sku/236773/intel-core-i9-processor-14900k-36m-cache-up-to-6-00-ghz/specifications.html) CPU and [Ubuntu 22.04.4 LTS](https://releases.ubuntu.com/jammy/) (~20 seconds using 10 threads on Apple M1 Pro).
+Train cheetah in ~10 seconds using 20 threads with [Intel Core i9-14900K](https://www.intel.com/content/www/us/en/products/sku/236773/intel-core-i9-processor-14900k-36m-cache-up-to-6-00-ghz/specifications.html) CPU and [Ubuntu 22.04.4 LTS](https://releases.ubuntu.com/jammy/) (~20 seconds using 10 threads on [Apple M1 Pro](https://support.apple.com/en-us/111901)).
 
 <img src="assets/cheetah.gif" alt="drawing" />
 
@@ -161,6 +160,28 @@ Visualize policy checkpoint:
 ```sh
 ./rs --env walker --load pretrained/walker_5619_41 --visualize
 ```
+
+### Command-line
+Setup:
+- `--env`: `ant`, `cheetah`, `humanoid`, `walker`
+- `--search`: run random search to improve policy
+- `--checkpoint`: filename in `checkpoint/` to save policy
+- `--load`: provide string in `checkpoint/` 
+directory to load policy from checkpoint
+- `--visualize`: visualize policy 
+- `--num_threads`: number of threads / parallel workers
+
+Search settings:
+- `--nsample`: number of random directions to sample
+- `--ntop`: number of random directions to use for policy update
+- `--niter`: number of policy updates
+- `--neval`: number of policy evaluations during search
+- `--nhorizon_search`: number of environment steps during policy improvement
+- `--nhorizon_eval`: number of environment steps during policy evaluation
+- `--random_step`: step size for random direction during policy perturbation
+- `--update_step`: step size for policy update during policy improvement
+- `--nenveval`: number of environments for policy evaluation
+- `--reward_shift`: subtract baseline from per-timestep reward
 
 
 ## Notes
