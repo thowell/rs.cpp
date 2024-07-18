@@ -194,3 +194,4 @@ This repository was developed to:
 - understand how to compute numerically stable running statistics
 - understand the details of [Gym environments](https://github.com/openai/gym)
 - experiment with code generation tools that are useful for improving development times, including: [ChatGPT](https://pytorch.org/cppdocs/) and [Claude](https://claude.ai/)
+- MuJoCo models use resources from [Gymnasium](https://github.com/Farama-Foundation/Gymnasium/tree/main/gymnasium/envs/mujoco) and [dm_control](https://github.com/google-deepmind/dm_control)
